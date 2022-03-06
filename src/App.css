@@ -46,3 +46,11 @@
  .item{
   width: 20%;
 }
+.inpholder{
+  padding: 10px;
+}
+.inpholder input{
+  padding: 5px 10px;
+  font-size: 14px;
+  margin-top: 5px;
+}
