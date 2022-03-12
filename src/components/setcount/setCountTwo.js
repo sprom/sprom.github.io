@@ -1,10 +1,12 @@
 import React, { useCallback, useMemo, useState } from "react";
 
+const countfunc = new Set();
+
 function SetCountTwo() {
   const [first, setFirst] = useState(0);
   const [second, setSecond] = useState(0);
 
-
+  
 
   const incrementFirst = useCallback(() => {
     setFirst(first + 1);
@@ -13,22 +15,26 @@ function SetCountTwo() {
     setSecond(second + 1);
   }, [second]);
 
-
-
-  const checkHigh = useMemo((highest) => {
-    if (first === second) {
-      highest="Draw";
-    } else {
-      first > second
-        ? highest ="button first higher " + first
-        : highest ="button second higher " + second;
-    }
-    return highest
-  }, [first, second]);
-
-
+  const checkHigh = useMemo(
+    (highest) => {
+      if (first === second) {
+        highest = "Draw";
+      } else {
+        first > second
+          ? (highest = "button first higher " + first)
+          : (highest = "button second higher " + second);
+      }
+      return highest;
+    },
+    [first, second]
+  );
 
   
+  countfunc.add(incrementFirst);
+  countfunc.add(incrementSecond);
+  
+  console.log(countfunc.size);
+
   return (
     <>
       <div className="content">
