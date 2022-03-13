@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding: 10px;
 }
 .content{
   padding: 50px 0;
@@ -7,12 +8,7 @@
   background-color: #f8f8f8;
 }
 .title{
-  margin-bottom: 20px;
-  font-size: 16px;
-  font-weight: bold;
-}
-.highnumber{
-  margin-top: 20px;
+  margin-bottom: 5px;
   font-size: 14px;
   font-weight: bold;
 }
@@ -31,4 +27,30 @@ button{
 }
 button:hover{
   background-color: #ccc;
+}
+input{
+  height: 36px;
+  padding: 5px 10px;
+  font-size:14px;
+  border: solid 1px #ccc;
+  outline: none;
+}
+.listing{
+  background-color: #ccc;
+  padding: 20px;
+  margin-top: 20px;
+}
+.item{
+  text-align: left;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #fff;
+}
+.desc{
+  font-size: 14px;
+}
+.error{
+  font-size:14px;
+  margin-top: 20px;
+  color: #d64949;
 }

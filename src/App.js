@@ -1,17 +1,15 @@
 import React from "react";
 import "./App.css";
-import SetCount from "./components/setcount/setCount";
-import SetCountTwo from "./components/setcount/setCountTwo";
+import Listing from "./pages/listing/listing";
+
+
 function App() {
-
-
-
   return (
     <div className="App">
-    <SetCount/>
-    <SetCountTwo/>
+      <Listing />
     </div>
   );
 }
+
 
 export default App;
