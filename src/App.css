@@ -2,32 +2,13 @@
   text-align: center;
   padding: 10px;
 }
-.content{
-  padding: 50px 0;
-  margin:0 0 50px;
-  background-color: #f8f8f8;
-}
+
 .title{
   margin-bottom: 5px;
   font-size: 14px;
   font-weight: bold;
 }
-button{
-  height: 32px;
-  padding: 0 20px;
-  margin: 0 10px;
-  border: solid 1px #ccc;
-  background-color: #f8f8f8;
-  outline: none;
-  cursor: pointer;
-  -webkit-transition:  0.4s ;
-  -moz-transition:  0.4s ;
-  -o-transition: 0.4s ;
-  transition:  0.4s ;
-}
-button:hover{
-  background-color: #ccc;
-}
+
 input{
   height: 36px;
   padding: 5px 10px;

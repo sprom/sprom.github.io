@@ -1,0 +1,13 @@
+<svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="8"
+              height="8"
+              viewBox="0 0 8 8"
+              fill="#B2BCC1"
+            >
+              <path
+                fill="inherit"
+                d="M700 261c.552 0 1 .448 1 1v2h2c.552 0 1 .448 1 1s-.448 1-1 1h-2v2c0 .552-.448 1-1 1s-1-.448-1-1v-2h-2c-.552 0-1-.448-1-1s.448-1 1-1h2v-2c0-.552.448-1 1-1z"
+                transform="translate(-696 -261) rotate(45 700 265)"
+              ></path>
+            </svg>

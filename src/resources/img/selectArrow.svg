@@ -1,0 +1,19 @@
+ <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="6.828"
+              height="4.414"
+              viewBox="0 0 6.828 4.414"
+            >
+              <g id="prefix__add-car" transform="translate(1.414 1.414)">
+                <g id="prefix__add---all-info-click">
+                  <g id="prefix__year-copy-4">
+                    <path
+                      id="prefix__Stroke-83"
+                      d="M0 4l2-2-2-2"
+                      transform="rotate(90 2 2)"
+                      style="fill: none; stroke: rgb(120, 128, 137); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2px; fill-rule: evenodd;"
+                    ></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
