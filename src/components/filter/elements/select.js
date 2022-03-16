@@ -2,20 +2,22 @@ import React, { useState, useEffect, useRef } from "react";
 import { ReactComponent as Arrow } from "../../../resources/img/selectArrow.svg";
 import { ReactComponent as Remove } from "../../../resources/img/remove.svg";
 
-function Select({ pars, set, allpars }) {
+function Select({options, value, placeholder, onChange = () => {} }) {
   const [active, setActive] = useState(false);
-  const [value, setValue] = useState(null);
+  
   const wrapperRef = useRef(null);
 
-  const onOptionClicked = (option, index) => () => {
-    setValue(option);
-    set({
-      ...allpars,
-      selected: index,
-    });
-    setActive(false);
-    
+
+  const setValue = (value) => {
+    onChange && onChange(value);
+  }
+
+  const onOptionClicked = (option) => () => {
+    setValue(option.value);
   };
+  const selectedValue = options.find(option => option.value == value);
+
+
   useEffect(() => {
     if (active) {
       function handleClickOutside(event) {
@@ -38,10 +40,14 @@ function Select({ pars, set, allpars }) {
     >
       <button className="dropdown-button d-flex align-items-center justify-content-between position-relative w-100 h-44px h-md-34px rounded-sm border-solid-1 border-gray-350 bg-white px-12px px-md-8px px-m-12px mb-8px mb-md-2px mb-lg-4px">
         <span className="dropdown-text font-size-12 text-gray-400 text-line-1">
-          {value || pars.def}
+          {(selectedValue && selectedValue.label) || placeholder || ''}
         </span>
-        {value ? (
-          <span className="clear-arrow " onClick={() => setValue(null)}>
+        {selectedValue ? (
+          <span className="clear-arrow " onClick={e =>{
+            e.preventDefault();
+            e.stopPropagation();
+            setValue(null)
+          }}>
             <Remove />
           </span>
         ) : (
@@ -54,10 +60,11 @@ function Select({ pars, set, allpars }) {
         <div className="dropdown-box bg-white w-100 position-absolute top-100 mt-2px z-index-1 rounded-xs overflow-hidden border-gray-200">
           <div className="dropdown-scroll mb-4px">
             <ul className="dropdown-list">
-              {pars.options.map((option, index) => (
-                <li onClick={onOptionClicked(option, index)} key={index}>
+              {options.map((option, index) => (
+                <li onClick={onOptionClicked(option)} key={index}>
                   <span className="d-flex align-items-center h-34px px-12px font-size-12 text-gray-400 hover-bg-gray-100 cursor-pointer">
-                    {option}
+                  {option.label}
+                  {option.value}
                   </span>
                 </li>
               ))}

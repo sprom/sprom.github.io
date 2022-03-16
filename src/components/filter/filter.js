@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import Select from "./elements/select";
 import Type from "./elements/type";
 import "./filter.scss";
-function Filter({ settype, type, allfilters,setAllfilters }) {
-  // const [bargainType, setbargainType] = useState({
-  //   options: ["იყიდება", "ქირავდება"],
-  //   def: 'გარიგების ტიპი',
-  //   selected: null
-  // });
-// console.log(allfilters.bargain);
+function Filter({ settype, type, value, onChange, allfilters }) {
   return (
     <div className="filter">
       <div className="left-types">
@@ -16,8 +10,10 @@ function Filter({ settype, type, allfilters,setAllfilters }) {
       </div>
       <div className="right-filter">
         <div className="col-20">
-          <Select set={setAllfilters} allpars={allfilters} pars={allfilters.bargain} />
-          {/* <Select set={setbargainType} pars={bargainType} /> */}
+          <Select options={allfilters.ForRent.options} 
+                  value={value.ForRent} 
+                  placeholder={allfilters.ForRent.def}
+                  onChange={value => onChange && onChange('ForRent', value)} />         
         </div>
       </div>
     </div>

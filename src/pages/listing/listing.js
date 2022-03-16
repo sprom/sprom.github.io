@@ -7,43 +7,38 @@ function Listing() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [typeId, setTypeID] = useState(0);
-
-  const [filterUrl, setfilterUrl] = useState('');// აქ ფილტრი თავიდან
-//დაბლა ობიექტში ბევრი რო მქონდეს ყველას იფ რო რ გავწერო 
-//და შიგნიდან დავსეტო ლინკის პრაგმენტები მაგალითად   ForRent=1
-  const [allfilters, setAllfilters] = useState({
-    bargain: 
+  const [params, setParams] = useState({});
+  
+  const allfilters = {
+    ForRent: 
       {
-        options: ["იყიდება", "ქირავდება"],
-        // options: [{label: "იყიდება", value: 'forRent'}, {label: "ქირავდება", value: 'forBuy'}],
+        options: [{label: "იყიდება", value: 0}, {label: "ქირავდება", value: 1}],
         def: "გარიგების ტიპი",
-        selected: null,//პასუხი მოდის 1 ან 2 
-        //აქ მინდა რამე რო თუ სელექტედია ფილტერში ჩავსვა
+        selected: null,
       },
-  // men_id: 
-  //     {
-      
-  //       options: ["BMW", "CAR"],
-  //       def: "მწარმოებელი",
-  //       selected: null,//პასუხი მოდის 1 ან 2 
-  //       //აქ მინდა რამე რო თუ სელექტედია ფილტერში ჩავსვა
-  //     }
-  });
+    Bettt: 
+      {
+        options: [{label: "იყიდება", value: 'forRent'}, {label: "ქირავდება", value: 'forBuy'}],
+        def: "გარიგების ტიპი",
+        selected: 1, 
+      },
 
-  // const ApiUrl = "https://api2.myauto.ge/ka/products?TypeID=0&ForRent=&Mans=&CurrencyID=3&MileageType=1&Page=1&searchType=forRent";
-  const ApiUrl = "https://api2.myauto.ge/ka/products?TypeID";
+  };
+ 
 
+  const ApiUrl = "https://api2.myauto.ge/ka/products?TypeID=";
+  
   async function fetchData() {
     try {
-      // let filterArguments = [];
-      // for (let filterId in allfilters) {
-      //       if (allfilters[filterId].selected || allfilters[filterId].selected === 0) {
-      //         filterArguments.push(filterId+"="+allfilters[filterId].selected);
-      //       }
-      // }
-      
-      const response = await axios.get(ApiUrl + typeId + filterUrl);
-      // const response = await axios.get(ApiUrl + typeId + filterUrl+filterArguments.join('&'));
+      let filterArguments = [];
+      for (let filterId in params) {
+            if (params[filterId] || params[filterId] === 0) {
+              filterArguments.push(filterId+"="+params[filterId]);
+            }
+            
+      }
+      console.log(filterArguments);
+      const response = await axios.get(ApiUrl + typeId +'&'+ filterArguments.join('&'));
       
       setItems(response.data.data.items);
       setLoading(false);
@@ -54,13 +49,23 @@ function Listing() {
 
   useEffect(() => {
     fetchData();
-  }, [typeId]);
+  }, [typeId, params]);
+
+  console.log('allfilters: ', allfilters);
+  console.log('params: ', params);
   return (
     <div className="content">
       <Filter
         type={typeId}
-        setAllfilters={setAllfilters}
+        
         allfilters={allfilters}
+        value={params}
+        onChange={((key, value) => {
+          setParams(params => ({
+            ...params,
+            [key]: value
+          }));
+        })}
         settype={setTypeID}
       />
       {/* <Search change={setInputVal} /> */}
