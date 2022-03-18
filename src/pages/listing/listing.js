@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Filter from "../../components/filter/filter";
 import Item from "./item/item";
-
+import './listing.scss'
 function Listing() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,17 +16,38 @@ function Listing() {
         def: "გარიგების ტიპი",
         selected: null,
       },
-    Bettt: 
+    Mans: 
       {
-        options: [{label: "იყიდება", value: 'forRent'}, {label: "ქირავდება", value: 'forBuy'}],
-        def: "გარიგების ტიპი",
-        selected: 1, 
+        options: [{label: "MERCEDES-BENZ", value: 25}, {label: "BMW", value: 3}, {label: "AUDI", value: 2}],
+        def: "მწარმოებელი",
+        selected: null, 
+      },
+      ProdYearFrom: 
+      {
+        options: [{label: "2017", value: 2017},{label: "2018", value: 2018},{label: "2019", value: 2019}, {label: "2020", value: 2020}, {label: "2021", value: 2021}],
+        def: "წელი - დან",
+        selected: null, 
+      },
+      ProdYearTo: 
+      {
+        options: [ {label: "2021", value: 2021}, {label: "2020", value: 2020}, {label: "2019", value: 2019},{label: "2018", value: 2018},{label: "2017", value: 2017}],
+        def: "მდე",
+        selected: null, 
+      },
+      WheelTypes: 
+      {
+        options: [{label: "მარცხენა", value: 0}, {label: "მარჯვენა", value: 1}],
+        def: "საჭე",
+        selected: null, 
       },
 
   };
- 
+  // console.log(allfilters.Mans.options.find(option => option.value === '25') + '-----------');
 
-  const ApiUrl = "https://api2.myauto.ge/ka/products?TypeID=";
+
+  
+
+  const ApiUrl = "https://api2.myauto.ge/ka/products?TypeID="+typeId;
   
   async function fetchData() {
     try {
@@ -38,7 +59,7 @@ function Listing() {
             
       }
       console.log(filterArguments);
-      const response = await axios.get(ApiUrl + typeId +'&'+ filterArguments.join('&'));
+      const response = await axios.get(ApiUrl +'&'+ filterArguments.join('&'));
       
       setItems(response.data.data.items);
       setLoading(false);
@@ -51,12 +72,13 @@ function Listing() {
     fetchData();
   }, [typeId, params]);
 
-  console.log('allfilters: ', allfilters);
-  console.log('params: ', params);
+  // console.log('allfilters: ', allfilters);
+  // console.log('params: ', params);
   return (
     <div className="content">
       <Filter
         type={typeId}
+        settype={setTypeID}
         
         allfilters={allfilters}
         value={params}
@@ -66,7 +88,6 @@ function Listing() {
             [key]: value
           }));
         })}
-        settype={setTypeID}
       />
       {/* <Search change={setInputVal} /> */}
 
@@ -74,7 +95,7 @@ function Listing() {
         {loading ? (
           <div className="loading">Loading...</div>
         ) : (
-          items?.map((item) => <Item key={item.car_id} data={item} />)
+          items?.map((item) => <Item key={item.car_id} data={item} opts={allfilters.Mans.options} />)
         )}
       </div>
     </div>

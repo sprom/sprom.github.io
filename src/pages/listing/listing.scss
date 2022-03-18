@@ -1,0 +1,59 @@
+.listing {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 780px;
+    flex-direction: column;
+
+    .d-flex {
+        display: flex;
+    }
+
+    .item {
+        background-color: #fff;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        padding: 16px;
+        display: flex;
+        flex-direction: row;
+
+        .photo {
+            width: 200px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+
+        .info {
+            width: 100%;
+            padding-left: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .top {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-direction: row;
+
+                .manufactur {
+                    color: #272a37;
+                    font-size: 14px;
+                    font-weight: bold;
+
+                    .year {
+                        color: #8996ae;
+                        margin-left: 8px;
+                    }
+
+                    .model {
+                        margin-left: 8px;
+                    }
+                }
+            }
+        }
+    }
+}

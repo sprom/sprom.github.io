@@ -64,7 +64,7 @@ function Select({options, value, placeholder, onChange = () => {} }) {
                 <li onClick={onOptionClicked(option)} key={index}>
                   <span className="d-flex align-items-center h-34px px-12px font-size-12 text-gray-400 hover-bg-gray-100 cursor-pointer">
                   {option.label}
-                  {option.value}
+                  {/* {option.value} */}
                   </span>
                 </li>
               ))}
