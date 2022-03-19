@@ -15,7 +15,7 @@ function Select({options, value, placeholder, onChange = () => {} }) {
   const onOptionClicked = (option) => () => {
     setValue(option.value);
   };
-  const selectedValue = options.find(option => option.value == value);
+  const selectedValue = options.find(option => option.value === value);
 
 
   useEffect(() => {

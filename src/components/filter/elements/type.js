@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { ReactComponent as Car } from "../../../resources/img/car.svg";
 import { ReactComponent as Truk } from "../../../resources/img/truk.svg";

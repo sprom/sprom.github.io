@@ -1,8 +1,20 @@
 .listing {
     display: flex;
     flex-wrap: wrap;
-    max-width: 780px;
+    width: 780px;
     flex-direction: column;
+    margin: 50px auto 30px;
+
+    .loading {
+        text-align: center;
+        font-size: 16px;
+        padding: 50px;
+    }
+
+    .total {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
 
     .d-flex {
         display: flex;
@@ -15,6 +27,11 @@
         padding: 16px;
         display: flex;
         flex-direction: row;
+
+        &.promo {
+            border: 1px solid #59d8c9;
+            background-color: rgba(89, 216, 201, .05);
+        }
 
         .photo {
             width: 200px;
@@ -38,11 +55,25 @@
                 justify-content: space-between;
                 align-items: flex-start;
                 flex-direction: row;
+                margin-bottom: 12px;
 
                 .manufactur {
                     color: #272a37;
                     font-size: 14px;
                     font-weight: bold;
+                    display: flex;
+
+                    .for_rent {
+                        font-size: 12px;
+                        padding: 0 10px;
+                        background-color: #1eb676;
+                        border-radius: 4px;
+                        margin-right: 12px;
+                        height: 20px;
+                        line-height: 20pxs;
+                        color: #fff;
+                        font-weight: normal;
+                    }
 
                     .year {
                         color: #8996ae;
@@ -51,6 +82,76 @@
 
                     .model {
                         margin-left: 8px;
+                    }
+                }
+
+                .top-right {
+                    display: flex;
+
+                    .gan {
+                        color: #26b753;
+                        font-size: 12px;
+                        margin-right: 24px;
+                    }
+
+                    .city {
+                        font-size: 12px;
+                        color: #8996ae;
+                    }
+                }
+            }
+
+            .mid {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-direction: row;
+
+                .left-data {
+                    width: 60%;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    div {
+                        width: 50%;
+                        margin-bottom: 12px;
+                        display: flex;
+                        align-items: center;
+                        font-size: 13px;
+                        line-height: 16px;
+
+                        svg {
+                            margin-right: 12px;
+                            min-width: 16px;
+                        }
+                    }
+                }
+
+                .right-data {
+                    display: flex;
+                    align-items: center;
+
+                    .price {
+                        font-weight: bold;
+                        font-size: 20px;
+                        margin-right: 14px;
+                    }
+
+                    .swich {
+                        background-color: #f2f3f6;
+                        width: 26px;
+                        height: 26px;
+                        cursor: pointer;
+                        min-width: 26px;
+                        font-size: 14px;
+                        text-align: center;
+                        line-height: 26px;
+                        border-radius: 50%;
+                        transition: .3s;
+
+                        &:hover {
+                            background-color: #ccc;
+                        }
                     }
                 }
             }
