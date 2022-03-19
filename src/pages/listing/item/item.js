@@ -69,12 +69,18 @@ function Item({ data, opts }) {
               </div>
             </div>
             <div className="right-data">
-              <div className="price">
-                {!valuta ? data.price : data.price_value}{" "}
-              </div>
-              <div className="swich" onClick={() => changeValuta()}>
-                {valuta ? <span>₾</span> : <span>$</span>}
-              </div>
+              {data.price === 0 ? (
+                "ფასი შეთანხმებით"
+              ) : (
+                <>
+                  <div className="price">
+                    {!valuta ? data.price : data.price_value}{" "}
+                  </div>
+                  <div className="swich" onClick={() => changeValuta()}>
+                    {valuta ? <span>₾</span> : <span>$</span>}
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
