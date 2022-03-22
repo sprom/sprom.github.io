@@ -2,10 +2,13 @@
   text-align: center;
   padding: 10px;
 }
+*{
+  box-sizing: border-box;
+}
 .content{
+  max-width: 900px;
   padding: 50px 0;
-  margin:0 0 50px;
-  background-color: #f8f8f8;
+  margin:0 auto 50px;
 }
 .title{
   margin-bottom: 5px;
@@ -36,21 +39,35 @@ input{
   outline: none;
 }
 .listing{
-  background-color: #ccc;
-  padding: 20px;
   margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .item{
+  width: 18%;
   text-align: left;
-  margin: 10px 0;
   padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
   background-color: #fff;
+  box-shadow: 3px 4px 14px 0px #b5b5b5;
 }
 .desc{
   font-size: 14px;
 }
+.poster{
+  
+}
+.poster img{max-width:100%}
 .error{
   font-size:14px;
   margin-top: 20px;
+  color: #d64949;
+}
+.serror{
+  font-size:14px;
+  padding: 20px 0;
+  line-height: 20px;
   color: #d64949;
 }

@@ -8,17 +8,20 @@ function Listing() {
   const [loading, setLoading] = useState(true);
   const [inputval, setInputVal] = useState(null);
 
-  const ApiUrl = "https://jsonplaceholder.typicode.com/photos";
+  const ApiUrl =
+    'https://imdb-api.com/en/API/Search/k_5n38ru6i/'+inputval;
 
   async function fetchData() {
     try {
       const response = await axios.get(
-        ApiUrl + (inputval ? "?id=" + inputval : "")
+        ApiUrl 
       );
-      setItems(response.data);
+      setItems(response.data.results);
       setLoading(false);
+      console.log(response.data.results);
     } catch (e) {
       console.log(e.message);
+      setLoading(false);
     }
   }
 
@@ -26,16 +29,18 @@ function Listing() {
     fetchData();
   }, [inputval]);
 
+
   return (
     <div className="content">
       <Search change={setInputVal} />
-
 
       <div className="listing">
         {loading ? (
           <div className="loading">Loading...</div>
         ) : (
-          items?.map((item) => <Item key={item.id} data={item} />)
+          items?.map((item) =>
+             <Item key={item.id} idata={item} /> 
+          )
         )}
       </div>
     </div>
