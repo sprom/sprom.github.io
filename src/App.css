@@ -1,19 +1,29 @@
 .App {
   text-align: center;
-  padding: 10px;
+  padding: 50px 0;
 }
 *{
   box-sizing: border-box;
 }
 .content{
   max-width: 900px;
-  padding: 50px 0;
   margin:0 auto 50px;
+}
+.logo a{
+  text-decoration: none;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0 auto 50px;
+  display: table;
 }
 .title{
   margin-bottom: 5px;
   font-size: 14px;
   font-weight: bold;
+}
+.desc{
+  font-size: 14px;
+  color: rgb(48, 42, 42);
 }
 button{
   height: 32px;
@@ -52,18 +62,30 @@ input{
   margin: 10px 0;
   background-color: #fff;
   box-shadow: 3px 4px 14px 0px #b5b5b5;
+  display: flex;
+  flex-direction: column;
 }
-.desc{
-  font-size: 14px;
-}
+
 .poster{
+  height: 200px;
+  margin-bottom: 10px;
+}
+.poster img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   
 }
-.poster img{max-width:100%}
+.loading{
+  text-align: center;
+  width: 100%;
+}
 .error{
   font-size:14px;
   margin-top: 20px;
   color: #d64949;
+  text-align: center;
+  width: 100%;
 }
 .serror{
   font-size:14px;

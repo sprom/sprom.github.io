@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 
 function Search({ change }) {
   const [searchData, setSearchData] = useState("");
@@ -16,6 +17,15 @@ function Search({ change }) {
       />
       <button onClick={handleSearch}>ძიება</button>
       {serror && <div className="serror">შეიყვანეთ 3 სიმბოლოზე მეტი</div>}
+      {searchData > 3? (
+        <Redirect
+          to={{
+            pathname: "/search",
+          }}
+        />
+      ) : (
+        "not"
+      )}
     </>
   );
 }

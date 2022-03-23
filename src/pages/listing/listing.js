@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import Search from "../../components/search/search";
 import Item from "./item/item";
 
-function Listing() {
-  const [items, setItems] = useState([]);
+function Listing({inputval}) {
+  const [items, setItems] = useState();
   const [loading, setLoading] = useState(true);
-  const [inputval, setInputVal] = useState(null);
+  const [error, seterror] = useState('');
 
   const ApiUrl =
     'https://imdb-api.com/en/API/Search/k_5n38ru6i/'+inputval;
@@ -18,9 +18,9 @@ function Listing() {
       );
       setItems(response.data.results);
       setLoading(false);
-      console.log(response.data.results);
+      seterror('');
     } catch (e) {
-      console.log(e.message);
+      seterror(e.message);
       setLoading(false);
     }
   }
@@ -28,11 +28,8 @@ function Listing() {
   useEffect(() => {
     fetchData();
   }, [inputval]);
-
-
   return (
     <div className="content">
-      <Search change={setInputVal} />
 
       <div className="listing">
         {loading ? (
@@ -42,6 +39,7 @@ function Listing() {
              <Item key={item.id} idata={item} /> 
           )
         )}
+        <div className="error">{error}</div>
       </div>
     </div>
   );
