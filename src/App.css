@@ -26,17 +26,16 @@
   color: rgb(48, 42, 42);
 }
 button{
-  height: 32px;
+  height: 36px;
   padding: 0 20px;
-  margin: 0 10px;
-  border: solid 1px #ccc;
-  background-color: #f8f8f8;
+  border: 0;
+  background-color: #00932d;
   outline: none;
   cursor: pointer;
-  -webkit-transition:  0.4s ;
-  -moz-transition:  0.4s ;
-  -o-transition: 0.4s ;
-  transition:  0.4s ;
+  transition: 0.4s;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  color: #fff;
 }
 button:hover{
   background-color: #ccc;
@@ -47,6 +46,9 @@ input{
   font-size:14px;
   border: solid 1px #ccc;
   outline: none;
+  width: 200px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 .listing{
   margin-top: 20px;
@@ -76,6 +78,7 @@ input{
   object-fit: cover;
   
 }
+.not-found,
 .loading{
   text-align: center;
   width: 100%;
@@ -92,4 +95,9 @@ input{
   padding: 20px 0;
   line-height: 20px;
   color: #d64949;
+}
+.searchs{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
