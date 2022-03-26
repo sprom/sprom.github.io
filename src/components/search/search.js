@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 function Search({ change }) {
   const [searchData, setSearchData] = useState("");
   const [serror, setSerror] = useState(false);
