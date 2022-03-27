@@ -1,9 +1,11 @@
 import weatherReducer from "./weather";
 import { combineReducers } from "redux";
+import searchReducer from "./search";
 
 
 const AllReducers = combineReducers({
-    weather:weatherReducer
+    weather:weatherReducer,
+    search:searchReducer
 })
 
 

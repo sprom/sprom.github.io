@@ -13,7 +13,7 @@ import PageNotFound from "./pages/pagenotfound/pagenotfound";
 import Search from "./pages/search/search";
 import Logo from "./resources/img/logo.svg";
 function App() {
-  // const [inputval, setInputVal] = useState("");
+  const [inputval, setInputVal] = useState("");
   // console.log(inputval);
 
   const dispatch = useDispatch();
@@ -66,7 +66,7 @@ function App() {
           <div className="logo">
             <img src={Logo} alt='logo'/>
           </div>
-
+          
           <Switch>
             <Route exact path="/">
               <HomePage />
