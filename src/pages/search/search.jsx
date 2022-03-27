@@ -10,12 +10,12 @@ function Search() {
   const [error, seterror] = useState("");
   const search = useSelector((state) => state.search);
 
-  const ApiUrl = "https://imdb-api.com/en/API/Search/k_5n38ru6i/"+search;
+  const ApiUrl = "https://www.omdbapi.com/?s="+search+"&apikey=268ca060";
 
   async function fetchData() {
     try {
       const response = await axios.get(ApiUrl);
-      setItems(response.data.results);
+      setItems(response.data.Search);
       seterror("");
       setLoading(false);
     } catch (e) {
@@ -23,7 +23,6 @@ function Search() {
       setLoading(false);
     }
   }
-console.log(ApiUrl);
   useEffect(() => {
     fetchData();
   }, [search]);
@@ -37,7 +36,7 @@ console.log(ApiUrl);
         ) : !items?.length ? (
           <div className="not-found">Data not found</div>
         ) : (
-          items?.map((item) => <Item key={item.id} idata={item} />)
+          items?.map((item) => <Item key={item.imdbID} idata={item} />)
         )}
         <div className="error">{error}</div>
       </div>

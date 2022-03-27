@@ -64,11 +64,13 @@ function App() {
 
         <div className="content">
           <div className="logo">
-            <img src={Logo} alt='logo'/>
+            <Link to={"/"}>
+              <img src={Logo} alt="logo" />
+            </Link>
           </div>
-          
+
           <Switch>
-            <Route exact path="/">
+            <Route exact={true} path="/">
               <HomePage />
             </Route>
             <Route path="/search">

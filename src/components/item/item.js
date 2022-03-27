@@ -1,15 +1,17 @@
 import React from "react";
-
 function Item({ idata }) {
   return (
     <div className="item">
+      <a target="_blank" href={"https://www.imdb.com/title/"+(idata.imdbID)} rel="noreferrer">
       <div className="poster">
-        <img src={idata.image} alt="cover" />
+        {
+          idata.Poster && <img src={idata.Poster} alt="cover" />
+        }
       </div>
       <div className="bot">
-        <div className="title">{idata.title}</div>
-        <div className="desc">{idata.description}</div>
+        <div className="title">{idata.Title}</div>
       </div>
+      </a>
     </div>
   );
 }

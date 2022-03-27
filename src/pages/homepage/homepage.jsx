@@ -7,12 +7,11 @@ function HomePage() {
   const [loading, setLoading] = useState(true);
   const [error, seterror] = useState("");
 
-  const ApiUrl = "https://imdb-api.com/en/API/MostPopularMovies/k_5n38ru6i";
-
+  const ApiUrl = "https://www.omdbapi.com/?s=Marvel&apikey=268ca060";
   async function fetchData() {
     try {
       const response = await axios.get(ApiUrl);
-      setItems(response.data.items);
+      setItems(response.data.Search);
       seterror("");
       setLoading(false);
     } catch (e) {
@@ -31,10 +30,10 @@ function HomePage() {
       <div className="listing">
         {loading ? (
           <div className="loading">Loading...</div>
-        ) : !items.length ? (
+        ) : !items?.length ? (
           <div className="not-found">Data not found</div>
         ) : (
-          items?.slice(0, 20).map((item) => <Item key={item.id} idata={item} />)
+          items?.map((item) => <Item key={item.imdbID} idata={item} />)
         )}
         <div className="error">{error}</div>
       </div>

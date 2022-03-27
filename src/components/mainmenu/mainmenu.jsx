@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './mainmenu.scss'
 
 function MainMenu() {
@@ -17,9 +17,9 @@ function MainMenu() {
                     }
                 </div>
                 <ul>
-                    <li> <Link to={'/'} >Home</Link></li>
-                    <li> <Link to={'/search'} >Search</Link></li>
-                    <li> <Link to={'/about'} >About</Link></li>
+                    <li> <NavLink activeClassName="active" exact={true} to={'/'} >Home</NavLink></li>
+                    <li> <NavLink  activeClassName="active" to={'/search'} >Search</NavLink></li>
+                    <li> <NavLink activeClassName="active" to={'/about'} >About</NavLink></li>
                 </ul>
             </div>
         </>
