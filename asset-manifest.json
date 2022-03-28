@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/SmartAc/static/css/main.cb10c606.css",
-    "main.js": "/SmartAc/static/js/main.8472640e.js",
-    "static/media/logo.svg": "/SmartAc/static/media/logo.35cbb3c0c1932bbda6a4b5dfdeb34b05.svg",
-    "index.html": "/SmartAc/index.html",
-    "main.cb10c606.css.map": "/SmartAc/static/css/main.cb10c606.css.map",
-    "main.8472640e.js.map": "/SmartAc/static/js/main.8472640e.js.map"
+    "main.css": "/static/css/main.cb10c606.css",
+    "main.js": "/static/js/main.f86427f3.js",
+    "static/media/logo.svg": "/static/media/logo.35cbb3c0c1932bbda6a4b5dfdeb34b05.svg",
+    "index.html": "/index.html",
+    "main.cb10c606.css.map": "/static/css/main.cb10c606.css.map",
+    "main.f86427f3.js.map": "/static/js/main.f86427f3.js.map"
   },
   "entrypoints": [
     "static/css/main.cb10c606.css",
-    "static/js/main.8472640e.js"
+    "static/js/main.f86427f3.js"
   ]
 }
