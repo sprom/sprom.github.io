@@ -64,7 +64,7 @@ function App() {
 
         <div className="content">
           <div className="logo">
-            <Link to={"/"}>
+            <Link to={"./"}>
               <img src={Logo} alt="logo" />
             </Link>
           </div>
