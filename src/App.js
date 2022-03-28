@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { createBrowserHistory } from "history";
 import { useDispatch, useSelector } from "react-redux";
 import { Switch } from "react-router-dom";
 import { Redirect } from "react-router-dom";
@@ -15,7 +15,9 @@ import Logo from "./resources/img/logo.svg";
 function App() {
   const [inputval, setInputVal] = useState("");
   // console.log(inputval);
-
+  const history = createBrowserHistory({
+    basename: process.env.PUBLIC_URL,
+  });
   const dispatch = useDispatch();
   const wetherApi =
     "https://api.openweathermap.org/data/2.5/weather?lat=41.6934591&lon=44.8014495&appid=c36856ae34b4e3e7fb9c1d1556dd2992";
@@ -64,7 +66,7 @@ function App() {
 
         <div className="content">
           <div className="logo">
-            <Link to={"./"}>
+            <Link to={"/"}>
               <img src={Logo} alt="logo" />
             </Link>
           </div>
@@ -79,9 +81,10 @@ function App() {
             <Route path="/about">
               <About />
             </Route>
-            <Route path="*">
+            <Route path="/404">
               <PageNotFound />
             </Route>
+            <Redirect from="*" to="/404" />
           </Switch>
         </div>
       </div>
